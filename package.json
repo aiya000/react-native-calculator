@@ -1,31 +1,36 @@
 {
   "name": "react_native_calculator",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
-    "build": "tsc",
+    "build": "tsc --project . && echo 'succeed' || echo 'failed' 2> /dev/stderr",
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
     "clean": "rm -rf build",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "watch": "watchexec --restart --exts ts,tsx,json,lock 'yarn run build'",
+    "test": "jest --config jest.config.js",
+    "repl": "yarn run ts-node",
+    "devtools": "yarn run react-devtools &"
   },
   "dependencies": {
     "react": "16.6.3",
     "react-native": "0.58.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "@types/jest": "^24.0.9",
     "@types/react": "^16.8.7",
     "@types/react-native": "^0.57.38",
+    "@types/react-test-renderer": "^16.8.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "24.1.0",
     "jest": "24.1.0",
+    "jest-haste-map": "^24.3.1",
+    "jest-resolve": "^24.3.1",
     "metro-react-native-babel-preset": "0.53.0",
+    "react-devtools": "^3.6.1",
     "react-test-renderer": "16.6.3",
+    "ts-node": "^8.0.2",
     "typescript": "^3.3.3333"
-  },
-  "jest": {
-    "preset": "react-native"
   }
 }
