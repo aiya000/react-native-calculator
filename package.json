@@ -8,7 +8,8 @@
     "clean": "rm -rf build",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "watch": "watchexec --restart --exts ts,tsx,json,lock 'yarn run build'",
-    "test": "jest --config jest.config.js",
+    "test": "yarn run build && yarn run test/run",
+    "test/run": "jest --config jest.config.js --silent=false",
     "repl": "yarn run ts-node",
     "devtools": "yarn run react-devtools &"
   },
