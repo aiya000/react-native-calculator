@@ -1,7 +1,7 @@
-import * as Data from './data'
+import * as Input_ from './data'
 import * as React from 'react'
 import { Operation, Digit, Input } from './data'
-import { StyleSheet, View, Button } from 'react-native'
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native'
 
 interface Props {
   onPressKey(pressed: Input): void
@@ -10,6 +10,12 @@ interface Props {
 const styles: any = StyleSheet.create({
   row: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  padText: {
+    fontSize: 40,
+    padding: 25,
   },
 })
 
@@ -28,10 +34,18 @@ export class KeyPad extends React.Component<Props, {}> {
   private makeRow(keys: [Input, Input, Input, Input]): React.ReactNode {
     return (
       <View style={styles.row}>
-        <Button title={Data.show(keys[0])} onPress={() => this.props.onPressKey(keys[0])} />
-        <Button title={Data.show(keys[1])} onPress={() => this.props.onPressKey(keys[1])} />
-        <Button title={Data.show(keys[2])} onPress={() => this.props.onPressKey(keys[2])} />
-        <Button title={Data.show(keys[3])} onPress={() => this.props.onPressKey(keys[3])} />
+        <TouchableHighlight onPress={() => this.props.onPressKey(keys[0])}>
+          <Text style={styles.padText}>{Input_.show(keys[0])}</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => this.props.onPressKey(keys[1])}>
+          <Text style={styles.padText}>{Input_.show(keys[1])}</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => this.props.onPressKey(keys[2])}>
+          <Text style={styles.padText}>{Input_.show(keys[2])}</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => this.props.onPressKey(keys[3])}>
+          <Text style={styles.padText}>{Input_.show(keys[3])}</Text>
+        </TouchableHighlight>
       </View>
     )
   }

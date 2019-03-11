@@ -34,9 +34,10 @@ const styles: any = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  result: {
-    backgroundColor: '#AAAAAA',
-    fontSize: 20,
+  resultText: {
+    fontSize: 40,
+    backgroundColor: 'silver',
+    borderColor: 'black',
   },
 })
 
@@ -49,9 +50,7 @@ export default class App extends React.Component<{}, State> {
   public render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.result}>
-          {this.state.result}
-        </Text>
+        <Text style={styles.resultText}>{this.state.result}</Text>
         <KeyPad onPressKey={this.resolve}/>
       </View>
     )
