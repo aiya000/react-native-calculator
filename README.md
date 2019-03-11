@@ -9,6 +9,7 @@ This is an example project for
 
 - [yarn](https://yarnpkg.com/lang/ja/)
 - [watchexec](https://github.com/watchexec/watchexec) (if you want to use `yarn run watch`)
+    - TODO: Use tsc `--watch` instead
 
 ## First
 
