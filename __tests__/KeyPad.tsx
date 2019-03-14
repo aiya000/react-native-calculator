@@ -35,7 +35,11 @@ function makePads(app: ReactTestInstance): Pads {
 
 function pushButtons(app: ReactTestInstance, button: Button[]): ReactTestInstance {
   const mapping = makePads(app)
-  button.map((label) => mapping[label].props.onPress())
+  button.map((label) => {
+    const x = mapping[label]
+    console.log(`${label} defines? ${x !== undefined}`)
+    return x.props.onPress()
+  })
   return app
 }
 
