@@ -1,3 +1,5 @@
+This is **WIP** now.
+
 # :gift: react-native-calculator :gift:
 
 This is an example project for
